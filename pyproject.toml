@@ -1,0 +1,4 @@
+[build-system]
+# Metadata lives in setup.py; this only pins the build backend.
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
