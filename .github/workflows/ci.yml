@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.10", "3.12"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install
+        run: |
+          pip install -e .
+          pip install pytest
+      # CI 只跑合成数据测试（test_core + test_budget）。
+      # 真实后端 E2E（test_full_e2e.py）需要本机 Edge、Espacenet 网络可达，
+      # 且消耗真实检索配额——只在维护者本机运行，不进 CI。
+      - name: Unit tests (synthetic)
+        run: >
+          python -m pytest
+          espacenet_cli/tests/test_core.py
+          espacenet_cli/tests/test_budget.py
+          -v --tb=short
