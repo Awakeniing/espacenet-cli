@@ -11,7 +11,8 @@ plus Espacenet's own frontend REST services. This module owns that backend:
 4. pace requests (EPO Fair Use) and retry fair-use/challenge responses.
 
 Ported from the prior Node.js implementation's validated transport
-(edge-session/challenge/client), restructured as a cli-anything backend.
+(session handling, challenge solving, HTTP client), restructured as a
+standalone CLI backend.
 """
 
 import base64

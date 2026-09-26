@@ -330,7 +330,7 @@ def test_report_structure_and_repro_commands(tmp_path):
         "query": 'ti="bicycle"', "totalFamilies": 5, "totalPublications": 6,
         "results": [{"publicationNumber": "EP1A1", "countryCode": "EP", "publicationDate": "2024-03-01",
                      "applicants": "Shimano", "familyId": "1"}]})
-    append_event(journal_root=root, event={"type": "note", "kind": "结论", "text": "重点在 ALD 层"})
+    append_event(journal_root=root, event={"type": "note", "kind": "结论", "text": "重点在封装结构层"})
     append_event(journal_root=root, event={"type": "error", "query": "bad query", "error": "QUERY_ERROR: x"})
     append_event(journal_root=root, event={"type": "detail", "target": "EP1A1", "summary": "tilte"})
     result = generate_report(journal_root=root)
@@ -345,7 +345,7 @@ def test_report_structure_and_repro_commands(tmp_path):
     assert "espacenet search" in content
     assert "--all --limit 500" in content
     assert "QUERY_ERROR" in content  # failed attempts are journaled too
-    assert "重点在 ALD 层" in content
+    assert "重点在封装结构层" in content
     assert "Shimano" in content
 
 

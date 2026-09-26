@@ -16,6 +16,12 @@
 - **输出契约成文**（README「机器可读输出契约」一节）：JSON 字段名只增不改、错误码表
   冻结、退出码语义不变——后端（Edge 页面上下文）越脆弱，前端契约越要稳。
 - 测试 60 → 67（+7：字段解析/校验/投影、jq 路径管道下标边界、CLI fail-fast）。
+- **发布前瘦身**：移除过程性文档与通用模板（docs/COMPARISON.md、tests/TEST.md、
+  CODE_OF_CONDUCT.md、包内重复 README）；REPL 皮肤精简为约 65 行最小实现
+  （对外接口与无控制台降级行为不变）。
+- **二轮瘦身**：移除决策期文档（docs/ACCEPTANCE.md 验收报告、docs/OPEN-SOURCING.md
+  开源备忘录——其结论已分别由测试套件与 README/RATELIMIT/LICENSE 承载）；
+  ESPACENET-PROTOCOL 标题去过程化、修正 CONTRIBUTING 中旧文件名引用。
 
 ## 0.4.0 — 独立命名与 Agent 优先定位
 

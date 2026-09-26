@@ -1,6 +1,6 @@
 # AGENTS.md — 给 AI Agent 的操作手册
 
-本文件遵循 AGENTS.md 社区约定。任何 AI Agent（Claude Code、Codex、Cursor、
+本文件遵循 AGENTS.md 社区约定。任何 AI Agent（ZCode、Claude Code、Codex、Cursor、
 Copilot 等）在收到"安装/使用/贡献这个仓库"的指令时，**按本协议执行**。
 
 **你的用户可能完全不懂编程。** 全程说人话汇报进度；技术细节放报告里，不要吓到他们。
@@ -25,7 +25,8 @@ Copilot 等）在收到"安装/使用/贡献这个仓库"的指令时，**按本
 | 依赖供应链 | `setup.py` 仅 3 个知名依赖（click/prompt-toolkit/playwright），无 post-install 脚本 | 陌生源/安装钩子=拒绝 |
 | 混淆 | 检查 base64 大块、十六进制串、动态拼装的代码 | 无法解释的混淆=拒绝 |
 
-**本仓库的预期结论**（供你交叉验证，不要照抄，自己查）：全部代码约 3000 行 Python，
+**本仓库的预期结论**（供你交叉验证，不要照抄，自己查）：全部 Python 代码约 4000 行
+（产品约 3000 行 + 测试约 900 行），
 无 eval/exec、无第三方端点、子进程仅启动 Edge、写入仅限上述本地目录。
 
 报告结论二选一：
@@ -43,9 +44,9 @@ espacenet doctor          # 检查 Edge 可执行文件与 profile；缺 Edge �
 ### 第 3 步：安装验证（必做，向用户证明可用）
 
 ```
-espacenet --version                        # 应输出 0.4.0
+espacenet --version                        # 应输出 0.5.0
 python -m pytest espacenet_cli/tests/test_core.py espacenet_cli/tests/test_budget.py -q
-                                           # 应 60 passed（纯本地合成数据，不联网）
+                                           # 应 67 passed（纯本地合成数据，不联网）
 espacenet connect                          # 首次连接：弹出 Edge，自动过人机验证
 espacenet search 'ti="bicycle"' -s 3 --json    # 真实检索冒烟
 ```

@@ -1,37 +1,11 @@
-# Python
 __pycache__/
-*.py[cod]
+*.pyc
 *.egg-info/
 build/
 dist/
 .pytest_cache/
-.venv/
-venv/
 
-# 本机运行产物（搜索结果、日志、验收原始数据——不入库）
+# runtime artifacts (generated on this machine, never committed)
+espacenet-journal/
 acceptance/
-espacenet-journal/
-pytest-results*.txt
-reg*.txt
-final_reg.txt
-*.log
-*.csv
-*.pdf
-
-# 检索记录与浏览器 profile（含人机验证凭据，严禁入库）
-espacenet-journal/
-**/edge-profile/
-**/edge-endpoint.json
-**/search-budget.json
-**/document-cache.json
-
-blocked-words.txt
-
-# 编辑器/系统
-.vscode/
-.idea/
-.DS_Store
-Thumbs.db
-
-# Node（历史遗留）
-node_modules/
+security-report.md

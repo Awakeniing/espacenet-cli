@@ -1,8 +1,8 @@
-# ESPACENET.md — Espacenet CLI Harness 分析与设计（CLI-Anything 流水线 Phase 1–2 产出）
+# Espacenet 接口协议笔记 —— 维护传输层前必读
 
 目标软件：**Espacenet**（https://worldwide.espacenet.com ，欧洲专利局 EPO 专利检索系统）。
-它是 Web 应用而非桌面 GUI，但其"后端引擎"同样是真实软件服务——本 harness 遵循 HARNESS.md
-第一原则：**调用真实后端，禁止玩具重实现**。这里的"真实软件"= 本机 Microsoft Edge 常驻会话 +
+它是 Web 应用而非桌面 GUI，但其"后端引擎"同样是真实软件服务——本项目的设计第一原则是
+**调用真实后端，禁止玩具重实现**。这里的"真实软件"= 本机 Microsoft Edge 常驻会话 +
 Espacenet 前端同款 REST 服务。
 
 ## Phase 1 代码库/目标分析
@@ -79,7 +79,7 @@ Espacenet 前端同款 REST 服务。
 
 ### 2.1 交互模型
 
-**双模式**（HARNESS.md 推荐）：子命令 CLI（脚本/管道）+ REPL（交互探索，默认入口，
+**双模式**：子命令 CLI（脚本/管道）+ REPL（交互探索，默认入口，
 `invoke_without_command=True`）。REPL 使用统一 ReplSkin（横幅/提示符/表格/消息/退出）。
 
 ### 2.2 命令组
@@ -99,7 +99,7 @@ Espacenet 前端同款 REST 服务。
   （与旧版完全兼容，两者可共享同一常驻 Edge）；启动并发用锁文件防竞态
 - **检索记录状态**：`./espacenet-journal/`（`--journal-dir`/`ESPACENET_JOURNAL_DIR` 可改）：
   `auto-log.ndjson` 全量流水、`.active-session` 指针、`sessions/<id>/{session.json,journal.ndjson,results/}`、
-  `reports/`；会话元数据保存使用 `_locked_save_json`（session-locking.md 模式）
+  `reports/`；会话元数据保存使用 `_locked_save_json`（文件锁保护的原子写）
 - **REPL 内存态**：最近一次检索结果（可另存）
 - 一次性变更命令（note/session start/end）**自动落盘**，配 `--dry-run` 预览不写入
 
@@ -117,4 +117,5 @@ Espacenet 前端同款 REST 服务。
 
 ### 2.6 与旧版（Node.js espacenet-cli）的有意差异
 
-见仓库根 `COMPARISON.md`（交付时生成的两版对比报告）。
+要点：数据产出与旧版一致（同一套传输协议）；稳定性（429 退避、预算罚时）与
+Agent 可用性（结构化错误、每命令 --json）更强。

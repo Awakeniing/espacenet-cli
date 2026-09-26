@@ -1,5 +1,8 @@
 # espacenet-cli
 
+[![CI](https://github.com/Awakeniing/espacenet-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/Awakeniing/espacenet-cli/actions/workflows/ci.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+
 **欧洲专利局 Espacenet 的命令行客户端，为 Agent 而生。** 检索、著录数据、权利要求、
 说明书、同族、法律事件、PDF 下载、检索会话留档与报告——每条命令都支持 `--json`。
 
@@ -69,7 +72,6 @@ Agent 与脚本依赖的不是某个命令，而是**稳定的输出契约**：
 - **[AGENTS.md](AGENTS.md)** — 给 Agent 的操作手册：安装协议（安全审查→环境→安装→验证）、使用速查、贡献流程
 - [docs/RATELIMIT.md](docs/RATELIMIT.md) — 限流实测数据与效用最大化
 - [docs/ESPACENET-PROTOCOL.md](docs/ESPACENET-PROTOCOL.md) — Espacenet 接口协议分析（维护传输层必读）
-- [docs/COMPARISON.md](docs/COMPARISON.md) / [docs/ACCEPTANCE.md](docs/ACCEPTANCE.md) — 与前身版本的产品对比与验收记录
 - [CHANGELOG.md](CHANGELOG.md) — 版本记录
 
 ## 参与维护
@@ -77,7 +79,7 @@ Agent 与脚本依赖的不是某个命令，而是**稳定的输出契约**：
 欢迎**所有正在用 Agent 做专利检索的人**——不要求会编程。两类贡献同等重要：
 
 - **人类**：提真实检索场景、验收功能、写用例；开发见 [CONTRIBUTING.md](CONTRIBUTING.md)
-- **Agent**：使用中发现问题/可改进点，按 [AGENTS.md 的贡献协议](AGENTS.md#贡献协议agent如何反馈)直接提 Issue/PR
+- **Agent**：使用中发现问题/可改进点，按 [AGENTS.md 的贡献协议](AGENTS.md#贡献协议agent-如何反馈)直接提 Issue/PR
 
 路线图：OPS API 双后端（彻底摆脱匿名限流）→ PyPI 发布 → 多专利局适配。认领方式见
 Issue 区 `good first issue`。

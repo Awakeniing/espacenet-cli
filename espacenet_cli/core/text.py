@@ -26,7 +26,7 @@ def parse_publication_number(value):
         raise CliError(
             "INVALID_PN",
             f"Unrecognized publication number: {value}",
-            action="Examples: EP2600908A1, EP2600908A1, US11234567B2",
+            action="Examples: EP2600908, EP2600908A1, US11234567B2",
             exit_code=2,
         )
     cc, num, kind = m.group(1), m.group(2), m.group(3) or ""

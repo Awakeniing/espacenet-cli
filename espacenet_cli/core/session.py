@@ -1,7 +1,8 @@
 """Durable JSON state helpers.
 
-`locked_save_json` follows the CLI-Anything session-locking guide: open
-without truncation, acquire an exclusive lock, truncate inside the lock.
+`locked_save_json` opens the file without truncation, acquires an exclusive
+lock, then truncates and writes inside the lock — so concurrent writers can
+never leave a half-written file.
 """
 
 import json
@@ -44,7 +45,7 @@ def _unlock_file(fd, kind):
 
 
 def locked_save_json(path, data, **dump_kwargs):
-    """Atomically persist JSON with exclusive file locking (session-locking.md)."""
+    """Atomically persist JSON with exclusive file locking."""
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     try:

@@ -6,7 +6,7 @@
 ## 你可以做什么（按稀缺度排序）
 
 > **Agent 贡献者**：如果你是 AI Agent 正在替用户工作，你的反馈/PR 流程在
-> [AGENTS.md 的贡献协议](AGENTS.md#贡献协议agent如何反馈)——简言之：Issue/PR 加 `[agent]`
+> [AGENTS.md 的贡献协议](AGENTS.md#贡献协议agent-如何反馈)——简言之：Issue/PR 加 `[agent]`
 > 前缀并声明生成与测试情况；合并由人类维护者终审。以下人类流程同样欢迎你转述给用户。
 
 1. **检索师视角的需求与验收**（不要求会编程）：提出真实检索场景、试用新命令、
@@ -19,7 +19,7 @@
 ## 开发环境
 
 ```bash
-git clone https://github.com/<owner>/espacenet-cli.git
+git clone https://github.com/Awakeniing/espacenet-cli.git
 cd espacenet-cli
 pip install -e .
 pip install pytest
@@ -41,14 +41,14 @@ espacenet-cli/
 │   ├── cli.py                   # Click 命令 + REPL（入口 espacenet=espacenet_cli.cli:main）
 │   ├── core/                    # config/text/search/document/pdf/journal/budget/session
 │   ├── utils/edge_backend.py    # 真实后端：Edge 常驻会话 + 页面内 fetch + 限流处理
-│   ├── utils/repl_skin.py       # REPL 皮肤（vendored 自 CLI-Anything 插件，勿大改）
+│   ├── utils/repl_skin.py       # REPL 皮肤（最小实现：横幅/消息/输入）
 │   └── tests/                   # test_core / test_budget（纯合成）+ test_full_e2e（真实后端）
 └── docs/ESPACENET-PROTOCOL.md   # 协议分析（端点/请求头/Cloudflare 通道）——改传输层前必读
 ```
 
 改动约定：
 
-- **传输层**改动只动 `utils/edge_backend.py` 与 `ESPACENET.md`，并同步 `docs/RATELIMIT.md`
+- **传输层**改动只动 `utils/edge_backend.py` 与 `docs/ESPACENET-PROTOCOL.md`，并同步 `docs/RATELIMIT.md`
   的实测参数；
 - **预算参数**（容量/回填/罚时）定义在 `core/budget.py` 顶部常量，调整必须有实测依据
   并更新 `docs/RATELIMIT.md` 与 CHANGELOG；
@@ -81,8 +81,7 @@ espacenet-cli/
 
 ## 行为准则
 
-参见 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)。摘要：对事不对人，尊重不同经验水平，
-维护者有义务对骚扰行为采取行动。
+对事不对人，尊重不同经验水平；维护者有义务对骚扰行为采取行动。
 
 ## 安全问题
 

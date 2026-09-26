@@ -21,7 +21,7 @@ Click 子命令 + 默认 REPL + 每个命令 `--json` + PEP 420 命名空间包�
 ## 安装与首次连接
 
 ```bash
-cd espacenet-cli-anything/espacenet/agent-harness
+cd espacenet-cli          # 仓库根目录
 pip install -e .
 espacenet connect     # 启动/复用共享 Edge 并完成人机验证
 ```
@@ -68,7 +68,7 @@ espacenet pdf EP2600908A1 --dir ./pdfs
 
 # 检索会话 → 报告
 espacenet session start "禧玛诺传动系统检索" --goal "摸清技术布局"
-espacenet search 'ti="bicycle" AND pa="shimano"' --all -f csv -o hw.csv
+espacenet search 'ti="bicycle" AND pa="shimano"' --all -f csv -o hits.csv
 espacenet note "改用英文词命中更全" --kind 调整
 espacenet session end
 espacenet report -o 报告.md
@@ -96,4 +96,4 @@ espacenet
 
 ## 版本
 
-0.3.0
+0.5.0

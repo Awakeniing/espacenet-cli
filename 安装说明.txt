@@ -1,0 +1,39 @@
+﻿【EPO 网页版命令行（espacenet-cli）安装说明】
+==============================================
+走浏览器通道直连欧洲专利局 Espacenet，不需要任何 API Key。
+前提：电脑装有 Microsoft Edge 浏览器（Windows 自带）。
+
+第 0 步 前提：装好 Python（3.10 或更高）
+  命令行输入 python --version 能显示版本即可。
+  没装的话去 https://www.python.org/downloads/ 下载，
+  安装时务必勾选 "Add python.exe to PATH"。
+
+第 1 步 解压
+  把 espacenet-cli 整个文件夹解压到任意位置（建议路径不含中文和空格）。
+
+第 2 步 安装（一条命令）
+  打开命令行，进入本文件夹：
+      cd /d 你的解压路径\espacenet-cli
+  执行：
+      python -m pip install -e .
+
+第 3 步 首次连接
+      espacenet connect
+  会自动启动一个 Edge 窗口。如果页面出现人机验证（复选框），
+  手动点一次即可，之后 CLI 会复用这个浏览器会话。
+
+第 4 步 验收
+      espacenet search "ti=\"coffee\"" --json
+  或查一件真实专利：
+      espacenet detail EP4066284A1 --json
+  能打印出 JSON 结果，就成功了。
+
+常用命令
+  espacenet search "txt=coffee AND pa=nestec" --json      检索
+  espacenet claims CN115152037 --json                      权利要求
+  espacenet detail EP4066284A1 --json                      著录+摘要
+  espacenet pdf EP4066284A1 --dir ./pdfs                   下载整册 PDF
+
+常见问题
+  CHALLENGE_BLOCKED = 人机验证过期，重跑 espacenet connect 点一次复选框
+  提示不是内部命令   = Python 没装或没勾 Add to PATH，回到第 0 步
