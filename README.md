@@ -1,6 +1,7 @@
 # espacenet-cli
 
 [![CI](https://github.com/Awakeniing/espacenet-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/Awakeniing/espacenet-cli/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/espacenet-cli)](https://pypi.org/project/espacenet-cli/)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 
 **欧洲专利局 Espacenet 的命令行客户端，为 Agent 而生。** 检索、著录数据、权利要求、
