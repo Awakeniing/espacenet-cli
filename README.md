@@ -4,6 +4,8 @@
 [![PyPI](https://img.shields.io/pypi/v/espacenet-cli)](https://pypi.org/project/espacenet-cli/)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 
+> 国内镜像 / CN mirror: [Gitee](https://gitee.com/research-society/espacenet-cli)（与 GitHub 同步 / synced with GitHub）
+
 **欧洲专利局 Espacenet 的命令行客户端，为 Agent 而生。** 检索、著录数据、权利要求、
 说明书、同族、法律事件、PDF 下载、检索会话留档与报告——每条命令都支持 `--json`。
 
